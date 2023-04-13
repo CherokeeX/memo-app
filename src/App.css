@@ -1,6 +1,6 @@
 .Container {
     max-width: 800px;
-    margin: auto ;
+    margin:  auto ;
 
    
 
@@ -13,7 +13,4 @@
     gap: 10px;
     margin-top: 10px;
 
-}
-.card img {
-    width: 100%;
 }

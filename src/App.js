@@ -1,24 +1,30 @@
 import { useState } from 'react';
 import './App.css';
+import { useEffect } from 'react';
 
 
 
 const cardList = [
-  {'path ': '/img/1.jpeg'},
-  {'path ': '/img/2.jpeg'},
-  {'path ': '/img/3.jpeg'},
-  {'path ': '/img/4.jpeg'},
-  {'path ': '/img/5.jpeg'},
-  {'path ': '/img/6.jpeg'},
-]
+  {"path": '/img/1.jpeg'},
+  {"path": '/img/2.jpeg'},
+  {"path": '/img/3.jpeg'},
+  {"path": '/img/4.jpeg'},
+  {"path": '/img/5.jpeg'},
+  {"path": '/img/6.jpeg'}
+];
 
 
 
 function App() {
 
-  const [cards,setCards ] = useState([])
+  const [cards,setCards ] = useState([]);
 
-  setCards(cardList); 
+  const prepareCards = ()=>{
+    
+    setCards(cardList); 
+  }
+useEffect(()=>{prepareCards()},[]);
+ 
   return (
     <div className="App">
       <h1>Memory App</h1>
@@ -28,7 +34,7 @@ function App() {
             cards.map(card => (
 
             <div className='card'>
-              <img className= 'cardFront'src="{card.path}" alt="" />
+              <img className= 'cardFront'src={card.path} alt="" />
               <img className="cardBack" src="/img/cover.jpg" alt="" />
               
             </div>

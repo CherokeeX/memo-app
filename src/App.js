@@ -21,12 +21,12 @@ function App() {
 
   const prepareCards = ()=>{
     
-    setCards(cardList); 
+    setCards([...cardList,...cardList]); 
   }
 useEffect(()=>{prepareCards()},[]);
  
   return (
-    <div className="App">
+    <div className="Container">
       <h1>Memory App</h1>
       <button type="">START GAME</button>
       <div className='card-grid'>
@@ -34,8 +34,8 @@ useEffect(()=>{prepareCards()},[]);
             cards.map(card => (
 
             <div className='card'>
-              <img className= 'cardFront'src={card.path} alt="" />
-              <img className="cardBack" src="/img/cover.jpg" alt="" />
+              <img className= "cardFront" src={card.path} alt="" />
+              <img className="cardBack" src="/img/cover.jpeg" alt="" />
               
             </div>
 

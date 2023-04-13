@@ -25,10 +25,10 @@ function App() {
     setCards(sortedCards);
     setSelectedFirst();
     setSelectedSecond();
-  };
+  }
 
   const handleSelected = (card) => {
-    selectedFirst ? selectedSecond(card) : selectedFirst(card);
+    selectedFirst ? setSelectedSecond(card):setSelectedFirst(card)
   };
   useEffect(() => {
     prepareCards();

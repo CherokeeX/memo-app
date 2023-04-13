@@ -48,10 +48,18 @@ function App() {
             }
           })
         })
+      }else {
+              setTimeout(()=>{
+                resetState();
+              }, 1000)
       }
     }
   }, [selectedFirst,selectedSecond]);
-
+const resetState = ()=>{
+  setSelectedFirst(null);
+  setSelectedSecond(null);
+  setDisabled(false);
+}
   return (
     <div className="Container">
       <h1>Memory App</h1>

@@ -48,7 +48,9 @@ function App() {
             }
           })
         })
-      }else {
+        setTimeout(()=>{
+          resetState();
+        }, 1000)}else {
               setTimeout(()=>{
                 resetState();
               }, 1000)
@@ -73,6 +75,7 @@ const resetState = ()=>{
             id={card.id}
             handleSelected={handleSelected}
             disabled={disabled}
+            rotated={card === selectedFirst || card===selectedSecond || card.matched}
             
           />
         ))}

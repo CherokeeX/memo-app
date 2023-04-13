@@ -4,3 +4,27 @@
     border-radius: 6px;
     cursor: pointer;
 }
+
+.card {
+    position: relative;
+}
+
+.card .cardFront {
+    position: absolute;
+    transform : rotateX(90deg);
+    transition: all ease-in 0.1s;
+}
+
+.card .cardBack{
+    transform: rotateX(0deg);
+    transition: all ease-in 0.1s;
+}
+
+.rotated .cardFront{
+    transform: rotateX(0deg);
+    transition-delay: 0.1s;
+}
+.rotated .cardBack{
+    transform: rotateX(90deg);
+    transition-delay: 0.1s;
+}

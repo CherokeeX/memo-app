@@ -16,6 +16,7 @@ function App() {
   const [cards, setCards] = useState([]);
   const [selectedFirst, setSelectedFirst] = useState(null);
   const [selectedSecond, setSelectedSecond] = useState(null);
+  const [disabled,setDisabled] = useState(false);
 
   const prepareCards = () => {
     const sortedCards = [...cardList, ...cardList]
@@ -34,6 +35,12 @@ function App() {
     prepareCards();
   }, []);
 
+  useEffect(() => {
+    if (selectedFirst && selectedSecond) {
+      setDisabled(true);
+    }
+  }, [selectedFirst,selectedSecond]);
+
   return (
     <div className="Container">
       <h1>Memory App</h1>
@@ -46,6 +53,8 @@ function App() {
             card={card}
             id={card.id}
             handleSelected={handleSelected}
+            disabled={disabled}
+            
           />
         ))}
       </div>

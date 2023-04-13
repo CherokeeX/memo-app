@@ -1,10 +1,11 @@
 import React from 'react'
 import './MemoryCard.css'
 
-export default function MemoryCard({card,handleSelected}) {
+export default function MemoryCard({card,handleSelected,disabled}) {
 
     const  handleClick =()=>{
-    handleSelected(card);
+        if(!disabled){ handleSelected(card);}
+   
 
     }
 

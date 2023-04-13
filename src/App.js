@@ -18,10 +18,27 @@ function App() {
 
   const [cards,setCards ] = useState([])
 
-  setCards(cardList)
+  setCards(cardList); 
   return (
     <div className="App">
       <h1>Memory App</h1>
+      <button type="">START GAME</button>
+      <div className='card-grid'>
+          {
+            cards.map(card => (
+
+            <div className='card'>
+              <img className= 'cardFront'src="{card.path}" alt="" />
+              <img className="cardBack" src="/img/cover.jpg" alt="" />
+              
+            </div>
+
+            ))
+
+
+          }
+        
+      </div>
     </div>
   );
 }

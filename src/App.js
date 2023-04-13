@@ -20,15 +20,17 @@ function App() {
   const [cards,setCards ] = useState([]);
 
   const prepareCards = ()=>{
+
+    const  sortedCards = [...cardList,...cardList].sort(()=>(0.5-Math.random())).map((card)=> ({...card, id: Math.random()}));
     
-    setCards([...cardList,...cardList]); 
+    setCards(sortedCards); 
   }
 useEffect(()=>{prepareCards()},[]);
- 
+  
   return (
     <div className="Container">
       <h1>Memory App</h1>
-      <button type="">START GAME</button>
+      <button type="">START GAME</button> 
       <div className='card-grid'>
           {
             cards.map(card => (

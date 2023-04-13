@@ -4,12 +4,12 @@ import { useEffect } from "react";
 import MemoryCard from "./components/MemoryCard";
 
 const cardList = [
-  { path: "/img/1.jpeg" },
-  { path: "/img/2.jpeg" },
-  { path: "/img/3.jpeg" },
-  { path: "/img/4.jpeg" },
-  { path: "/img/5.jpeg" },
-  { path: "/img/6.jpeg" },
+  { path: "/img/1.jpeg" , matched:false},
+  { path: "/img/2.jpeg" , matched:false},
+  { path: "/img/3.jpeg" , matched:false},
+  { path: "/img/4.jpeg" , matched:false},
+  { path: "/img/5.jpeg" , matched:false},
+  { path: "/img/6.jpeg" , matched:false},
 ];
 
 function App() {
@@ -38,6 +38,17 @@ function App() {
   useEffect(() => {
     if (selectedFirst && selectedSecond) {
       setDisabled(true);
+      if(selectedFirst.path===selectedSecond.path){
+        setCards(prevCards => {
+          return prevCards.map(card =>{
+            if (card.path===selectedFirst.path){
+              return {...card, matched:true}
+            }else{
+              return card
+            }
+          })
+        })
+      }
     }
   }, [selectedFirst,selectedSecond]);
 
